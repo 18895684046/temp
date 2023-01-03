@@ -11,7 +11,7 @@
     "precommit": "npm run lint"
   },
   "lint-staged": {
-    "*.{js,jsx,json,.vue}": [
+    "*.{js,jsx,json,scss,vue}": [
       "prettier --write",
       "git add"
     ]

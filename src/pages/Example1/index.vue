@@ -18,7 +18,7 @@ const isDateDisabled = (timestamp: number) => {
 <template>
   <div class="container">
     <NCalendar v-model:value="value" #="{ year, month, date }" :is-date-disabled="isDateDisabled">
-      {{ year }} - {{     month }}-{{     date }}
+      {{   year }} - {{     month }}-{{     date }}
     </NCalendar>
   </div>
 </template>
