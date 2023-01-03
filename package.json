@@ -10,7 +10,7 @@
     "lint": "eslint --ext .js,.ts,.vue src",
     "precommit": "npm run lint",
     "prepare": "husky install",
-    "fmt:lint-staged": "lint-staged --allow-empty"
+    "fmt:lint-staged": "lint-staged --allow-empty precommit"
   },
   "lint-staged": {
     "**/*.{js,ts,less,scss,md,json,vue}": [
