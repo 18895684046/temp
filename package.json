@@ -8,10 +8,12 @@
     "build": "vue-tsc --noEmit && vite build --mode production",
     "serve": "vite preview",
     "lint": "eslint --ext .js,.ts,.vue src",
-    "precommit": "npm run lint"
+    "precommit": "npm run lint",
+    "prepare": "husky install",
+    "fmt:lint-staged": "lint-staged"
   },
   "lint-staged": {
-    "*.{js,jsx,json,scss,vue}": [
+    "**/*.{js,ts,less,md,json,vue}": [
       "prettier --write",
       "git add"
     ]
@@ -39,6 +41,7 @@
     "husky": "^8.0.3",
     "lint-staged": "^13.1.0",
     "naive-ui": "^2.31.0",
+    "prettier": "^2.8.1",
     "sass": "^1.43.2",
     "typescript": "^4.3.2",
     "vite": "^2.5.4",
