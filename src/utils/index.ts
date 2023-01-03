@@ -1,11 +1,11 @@
-import Cookies from 'js-cookie'
+import Cookies from 'js-cookie';
 
 // 登出
 export const logout = () => {
-  Cookies.remove('fullname')
-  Cookies.remove('email')
-  window.location.href = `${import.meta.env.VITE_LOGOUT_URL}?next=${window.location.href}`
-}
+  Cookies.remove('fullname');
+  Cookies.remove('email');
+  window.location.href = `${import.meta.env.VITE_LOGOUT_URL}?next=${window.location.href}`;
+};
 
 // 判断是否是移动端
 export const getIsMobile = () => {

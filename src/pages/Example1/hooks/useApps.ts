@@ -1,5 +1,5 @@
-import { ref } from 'vue'
-import { getApps } from '../service'
+import { ref } from 'vue';
+import { getApps } from '../service';
 
 // 单个App数据结构
 interface App {
@@ -13,21 +13,19 @@ interface App {
 
 const useApps = () => {
   // 应用数据
-  const apps = ref<App | null>(null)
+  const apps = ref<App | null>(null);
 
   // 初始化数据
   const init = () => {
-    getApps().then(
-      res => {
-        apps.value = res?.data
-      }
-    )
-  }
+    getApps().then((res) => {
+      apps.value = res?.data;
+    });
+  };
 
   // 此处执行 相当于在created中执行
-  init()
+  init();
 
-  return apps
-}
+  return apps;
+};
 
-export default useApps
+export default useApps;

@@ -1,29 +1,28 @@
 <script setup lang="ts">
-import { nextTick } from 'vue'
-import { storeToRefs } from 'pinia'
-import { NConfigProvider, NLoadingBarProvider, NMessageProvider,darkTheme } from 'naive-ui'
-import Header from '@/components/Header/index.vue'
-import MobileHeader from '@/mobileComponents/mobileHeader/index.vue'
-import { themeOverrides } from '@/theme'
-import LoadingBarApi from '@/components/LoadingBarApi/index.vue'
-import MessageApi from '@/components/MessageApi/index.vue'
-import useNavbar from '@/hooks/useNavbar'
-import { useProjectsStore } from '@/stores/modules/projectStore'
-import verifyPermission from '@/utils/verifyPermission'
+import { nextTick } from 'vue';
+import { storeToRefs } from 'pinia';
+import { NConfigProvider, NLoadingBarProvider, NMessageProvider, darkTheme } from 'naive-ui';
+import Header from '@/components/Header/index.vue';
+import MobileHeader from '@/mobileComponents/mobileHeader/index.vue';
+import { themeOverrides } from '@/theme';
+import LoadingBarApi from '@/components/LoadingBarApi/index.vue';
+import MessageApi from '@/components/MessageApi/index.vue';
+import useNavbar from '@/hooks/useNavbar';
+import { useProjectsStore } from '@/stores/modules/projectStore';
+import verifyPermission from '@/utils/verifyPermission';
 
-const projectStore = useProjectsStore()
-const { getDefaultProjectId, getProjects } = storeToRefs(projectStore)
+const projectStore = useProjectsStore();
+const { getDefaultProjectId, getProjects } = storeToRefs(projectStore);
 
-const navbar = useNavbar()
+const navbar = useNavbar();
 
 // 验证用户权限
-verifyPermission()
+verifyPermission();
 
 nextTick(() => {
-  projectStore.setDefaultProjectId()
-  projectStore.getAllProjects()
-})
-
+  projectStore.setDefaultProjectId();
+  projectStore.getAllProjects();
+});
 </script>
 
 <template>
@@ -37,13 +36,21 @@ nextTick(() => {
     </NMessageProvider>
 
     <div class="hd-mobile">
-      <MobileHeader :navbar="navbar" :projectId="getDefaultProjectId" :projects="getProjects"
-        :handleProjectSelected="projectStore.updateDefaultProjectId" />
+      <MobileHeader
+        :navbar="navbar"
+        :projectId="getDefaultProjectId"
+        :projects="getProjects"
+        :handleProjectSelected="projectStore.updateDefaultProjectId"
+      />
     </div>
 
     <div class="hd-pc">
-      <Header :navbar="navbar" :projectId="getDefaultProjectId" :projects="getProjects"
-        :handleProjectSelected="projectStore.updateDefaultProjectId" />
+      <Header
+        :navbar="navbar"
+        :projectId="getDefaultProjectId"
+        :projects="getProjects"
+        :handleProjectSelected="projectStore.updateDefaultProjectId"
+      />
     </div>
 
     <div class="main">
@@ -53,7 +60,7 @@ nextTick(() => {
 </template>
 
 <style lang="scss">
-@import "@/styles/global.scss";
+@import '@/styles/global.scss';
 
 .main {
   height: calc(100vh - 50px);

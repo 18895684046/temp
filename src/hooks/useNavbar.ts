@@ -1,5 +1,5 @@
-import { ref } from 'vue'
-import { getNavbar } from "@/http/service/navbar"
+import { ref } from 'vue';
+import { getNavbar } from '@/http/service/navbar';
 
 export interface Navbar {
   data: Data;
@@ -26,7 +26,7 @@ interface MenuItem {
 interface SubMenuItem {
   name: string;
   top: number;
-  subServices: SubServiceItem[]
+  subServices: SubServiceItem[];
 }
 
 interface SubServiceItem {
@@ -36,16 +36,14 @@ interface SubServiceItem {
 }
 
 const useNavbar = () => {
-  const navbar = ref<Navbar>()
+  const navbar = ref<Navbar>();
 
   // 获取所有服务信息
-  getNavbar().then(
-    res => {
-      navbar.value = res
-    }
-  )
+  getNavbar().then((res) => {
+    navbar.value = res;
+  });
 
-  return navbar
-}
+  return navbar;
+};
 
-export default useNavbar
+export default useNavbar;

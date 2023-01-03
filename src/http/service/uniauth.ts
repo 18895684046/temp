@@ -1,53 +1,43 @@
-import request from '../index'
-import config from '../config'
+import request from '../index';
+import config from '../config';
 
-const preUrl = '/api/uniauth'
+const preUrl = '/api/uniauth';
 
 const {
-  uniauth: {
-    defaultProject,
-    projects,
-    permissions
-  }
-} = config
+  uniauth: { defaultProject, projects, permissions },
+} = config;
 
 // 获取用户默认项目信息
 export const getDefaultProject = () => {
   return request({
     url: preUrl + defaultProject,
     method: 'get',
-  })
-}
+  });
+};
 
 // 更新默认项目id
 export const updateDefaultProject = (data: { projectId: string }) => {
   return request({
     url: preUrl + defaultProject,
     method: 'put',
-    data
-  })
-}
+    data,
+  });
+};
 
 // 获取所有项目信息
 export const getProjects = (params: { appName: string }) => {
   return request({
     url: preUrl + projects,
     method: 'get',
-    params
-  })
-}
+    params,
+  });
+};
 
 // 获取用户权限
-export const getPermissions = (
-  params: {
-    appName: string,
-    projectId: string,
-    email: string
-  }
-) => {
+export const getPermissions = (params: { appName: string; projectId: string; email: string }) => {
   return request({
     url: preUrl + permissions,
     method: 'get',
-    params
-  })
-}
+    params,
+  });
+};

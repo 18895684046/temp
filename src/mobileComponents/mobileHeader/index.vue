@@ -1,72 +1,72 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue'
-import { useRoute } from 'vue-router'
-import Cookies from 'js-cookie'
-import { ConfigProvider, Icon, Popup, Collapse, CollapseItem } from 'vant'
-import { NAvatar, NIcon, NSelect } from 'naive-ui'
-import { PoweroffOutlined, RightOutlined, UserOutlined } from '@vicons/antd'
-import { logout } from '@/utils'
-import { Navbar } from '@/hooks/useNavbar'
-import { Project } from '@/stores/modules/projectStore'
+import { ref, watch } from 'vue';
+import { useRoute } from 'vue-router';
+import Cookies from 'js-cookie';
+import { ConfigProvider, Icon, Popup, Collapse, CollapseItem } from 'vant';
+import { NAvatar, NIcon, NSelect } from 'naive-ui';
+import { PoweroffOutlined, RightOutlined, UserOutlined } from '@vicons/antd';
+import { logout } from '@/utils';
+import { Navbar } from '@/hooks/useNavbar';
+import { Project } from '@/stores/modules/projectStore';
 
 const RouteNameMap: any = {
   example: '测试服务',
   example1: '用例管理',
   example2: '用例执行',
-  example3: '帮助中心'
-}
-
-const props = defineProps<{
-  navbar: Navbar,
-  projectId: string,
-  projects: Project[],
-  handleProjectSelected: (value: string) => void
-}>()
-
-const route = useRoute()
-
-const themeVars = {
-  collapseItemContentPadding: '0 16px'
+  example3: '帮助中心',
 };
 
-const show = ref<boolean>(false)
-const activeNames = ref<any>([])
-const curTabText = ref<string>('') 
-const avatar = Cookies.get('avatar')
-const nickname = (Cookies.get('fullname') || '').replace(/\+/g, ' ')
+const props = defineProps<{
+  navbar: Navbar;
+  projectId: string;
+  projects: Project[];
+  handleProjectSelected: (value: string) => void;
+}>();
+
+const route = useRoute();
+
+const themeVars = {
+  collapseItemContentPadding: '0 16px',
+};
+
+const show = ref<boolean>(false);
+const activeNames = ref<any>([]);
+const curTabText = ref<string>('');
+const avatar = Cookies.get('avatar');
+const nickname = (Cookies.get('fullname') || '').replace(/\+/g, ' ');
 
 watch(route, (r) => {
-  const name: any = r.name
+  const name: any = r.name;
 
-  curTabText.value = RouteNameMap[name]
-})
+  curTabText.value = RouteNameMap[name];
+});
 
 const setCurTabText = (value: string) => {
-  curTabText.value = value
-}
+  curTabText.value = value;
+};
 
 const showPopup = () => {
-  show.value = true
-}
+  show.value = true;
+};
 
 const closePopup = () => {
-  show.value = false
-}
+  show.value = false;
+};
 
 const hrefTo = (disabled: boolean, url: string) => {
-  if (disabled) return
+  if (disabled) return;
 
-  window.location.href = url
-}
+  window.location.href = url;
+};
 
 const handleSubSrvClick = (disabled: boolean, url: string, name: string) => {
-  hrefTo(disabled, url)
-  setCurTabText(name)
-}
+  hrefTo(disabled, url);
+  setCurTabText(name);
+};
 
 const linkToAdmin = () => {
-  window.location.href = `/uniauth/project/${props.projectId}`
-}
+  window.location.href = `/uniauth/project/${props.projectId}`;
+};
 </script>
 
 <template>
@@ -91,19 +91,26 @@ const linkToAdmin = () => {
             </div>
 
             <Collapse :border="false" v-model="activeNames">
-              <CollapseItem 
-                :class="['hd-mobile-first-tab', { 'hd-mobile-active-tab': curTabText === '测试服务' }]"
+              <CollapseItem
+                :class="[
+                  'hd-mobile-first-tab',
+                  { 'hd-mobile-active-tab': curTabText === '测试服务' },
+                ]"
                 @click.stop="setCurTabText('测试服务')"
                 :border="false"
                 title="测试服务"
                 name="100"
               >
                 <CollapseItem
-                  style="padding: 0;"
-                  :border="false" v-for="(service, index) of navbar?.data?.menu?.find((i: any) => i.name === '测试服务')?.submenu"
+                  style="padding: 0"
+                  :border="false"
+                  v-for="(service, index) of navbar?.data?.menu?.find((i: any) => i.name === '测试服务')?.submenu"
                   :title="service.name"
                   :name="index"
-                  :class="['hd-mobile-second-tab', { 'hd-mobile-active-tab': curTabText === service.name }]"
+                  :class="[
+                    'hd-mobile-second-tab',
+                    { 'hd-mobile-active-tab': curTabText === service.name },
+                  ]"
                   @click.stop="setCurTabText(service.name)"
                 >
                   <CollapseItem
@@ -117,8 +124,7 @@ const linkToAdmin = () => {
                     <template #title>
                       <div class="hd-mobile-third-tab-title">{{ subSrv.name }}</div>
                     </template>
-                    <template #right-icon>
-                    </template>
+                    <template #right-icon> </template>
                   </CollapseItem>
                 </CollapseItem>
               </CollapseItem>
@@ -126,46 +132,58 @@ const linkToAdmin = () => {
               <CollapseItem
                 readonly
                 :border="false"
-                :class="['hd-mobile-first-tab', { 'hd-mobile-active-tab': curTabText === '用例管理' }]"
+                :class="[
+                  'hd-mobile-first-tab',
+                  { 'hd-mobile-active-tab': curTabText === '用例管理' },
+                ]"
                 @click="setCurTabText('用例管理')"
               >
                 <template #title>
                   <div class="link-wrp">
-                    <router-link @click="closePopup" :to="{ name: 'example1' }">用例管理</router-link>
+                    <router-link @click="closePopup" :to="{ name: 'example1' }"
+                      >用例管理</router-link
+                    >
                   </div>
                 </template>
-                <template #right-icon>
-                </template>
-              </CollapseItem>
-
-              <CollapseItem 
-                readonly
-                :border="false"
-                :class="['hd-mobile-first-tab', { 'hd-mobile-active-tab': curTabText === '用例执行' }]"
-                @click="setCurTabText('用例执行')"
-              >
-                <template #title>
-                  <div class="link-wrp">
-                    <router-link @click="closePopup" :to="{ name: 'example2' }">用例执行</router-link>
-                  </div>
-                </template>
-                <template #right-icon>
-                </template>
+                <template #right-icon> </template>
               </CollapseItem>
 
               <CollapseItem
                 readonly
                 :border="false"
-                :class="['hd-mobile-first-tab', { 'hd-mobile-active-tab': curTabText === '帮助中心' }]"
+                :class="[
+                  'hd-mobile-first-tab',
+                  { 'hd-mobile-active-tab': curTabText === '用例执行' },
+                ]"
+                @click="setCurTabText('用例执行')"
+              >
+                <template #title>
+                  <div class="link-wrp">
+                    <router-link @click="closePopup" :to="{ name: 'example2' }"
+                      >用例执行</router-link
+                    >
+                  </div>
+                </template>
+                <template #right-icon> </template>
+              </CollapseItem>
+
+              <CollapseItem
+                readonly
+                :border="false"
+                :class="[
+                  'hd-mobile-first-tab',
+                  { 'hd-mobile-active-tab': curTabText === '帮助中心' },
+                ]"
                 @click="setCurTabText('帮助中心')"
               >
                 <template #title>
                   <div class="link-wrp">
-                    <router-link @click="closePopup" :to="{ name: 'example3' }">帮助中心</router-link>
+                    <router-link @click="closePopup" :to="{ name: 'example3' }"
+                      >帮助中心</router-link
+                    >
                   </div>
                 </template>
-                <template #right-icon>
-                </template>
+                <template #right-icon> </template>
               </CollapseItem>
             </Collapse>
           </div>
@@ -225,6 +243,6 @@ const linkToAdmin = () => {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/constant.scss";
-@import "./index.scss";
+@import '@/styles/constant.scss';
+@import './index.scss';
 </style>

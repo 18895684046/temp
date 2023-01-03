@@ -32,7 +32,6 @@
       color: $font-gray;
       // color: var(--test);
 
-
       .hd-nav {
         height: 100%;
         padding: 0 16px;
@@ -56,7 +55,6 @@
       }
 
       .hd-nav-srvs {
-
         &:hover,
         &:active {
           .hd-subnav-wrp {
@@ -76,7 +74,7 @@
           overflow: hidden;
           color: #a5a5a5;
           background: rgba(32, 42, 54, 0.9);
-          transition: height .25s ease;
+          transition: height 0.25s ease;
 
           .hd-subnav-content {
             width: 1200px;
@@ -92,7 +90,7 @@
                 line-height: 24px;
                 font-size: 14px;
                 text-align: left;
-                color: #D7DDE4;
+                color: #d7dde4;
               }
 
               &:hover {
@@ -114,7 +112,7 @@
                   line-height: 24px;
                   font-size: 12px;
                   text-align: left;
-                  color: #80848F;
+                  color: #80848f;
                   transition: all 0.2s;
 
                   .srv-name {
@@ -139,7 +137,7 @@
 
                 .subsrv-active {
                   .srv-name {
-                    color: #B7BDC4;
+                    color: #b7bdc4;
                   }
 
                   &:hover {
@@ -180,7 +178,7 @@
     height: 40px;
     font-size: 0;
     border-radius: 40px;
-    transition: all .35s;
+    transition: all 0.35s;
     z-index: 9;
 
     img {
@@ -205,13 +203,13 @@
     overflow: hidden;
     transform: translate3d(-50%, 0, 0);
     margin-left: -22px;
-    transition: .35s;
+    transition: 0.35s;
     z-index: 1;
 
     .hd-detail-panel {
       padding: 0 24px 18px;
       width: 152px;
-      border: 1px solid #E3E5E7;
+      border: 1px solid #e3e5e7;
       border-radius: 8px;
       box-shadow: 0 0 30px rgb(0 0 0 / 10%);
       background: #fff;
@@ -238,13 +236,13 @@
         margin-bottom: 2px;
         padding: 10px 14px;
         border-radius: 8px;
-        color: #61666D;
+        color: #61666d;
         font-size: 14px;
         cursor: pointer;
-        transition: background-color .3s;
+        transition: background-color 0.3s;
 
         &:hover {
-          background-color: #E3E5E7;
+          background-color: #e3e5e7;
         }
 
         .link-title {

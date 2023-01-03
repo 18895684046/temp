@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
-import Cookies from 'js-cookie'
-import { Base64 } from 'js-base64'
+import Cookies from 'js-cookie';
+import { Base64 } from 'js-base64';
 
 export interface IUserState {
   // 全名
@@ -13,7 +13,7 @@ export interface IUserState {
   permissions: string[];
 }
 
-// 存储用户相关的 store 
+// 存储用户相关的 store
 export const useUserStore = defineStore({
   id: 'userStore',
 

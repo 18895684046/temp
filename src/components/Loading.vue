@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import loadingBgImg from '@/assets/loading_bg.png'
-import loadingIconImg from '@/assets/loading_icon.png'
-
+import loadingBgImg from '@/assets/loading_bg.png';
+import loadingIconImg from '@/assets/loading_icon.png';
 </script>
 
 <template>

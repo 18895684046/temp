@@ -52,7 +52,7 @@
         display: inline-block;
         text-align: center;
         font-size: 0;
-    
+
         .pop-hd-logo {
           height: 24px;
           margin-right: 8px;
@@ -89,7 +89,7 @@
     height: 40px;
     font-size: 0;
     border-radius: 40px;
-    transition: all .35s;
+    transition: all 0.35s;
     z-index: 9;
 
     img {
@@ -114,13 +114,13 @@
     overflow: hidden;
     transform: translate3d(-50%, 0, 0);
     margin-left: -22px;
-    transition: .35s;
+    transition: 0.35s;
     z-index: 1;
 
     .hd-detail-panel {
       padding: 0 24px 18px;
       width: 152px;
-      border: 1px solid #E3E5E7;
+      border: 1px solid #e3e5e7;
       border-radius: 8px;
       box-shadow: 0 0 30px rgb(0 0 0 / 10%);
       background: #fff;
@@ -147,13 +147,13 @@
         margin-bottom: 2px;
         padding: 10px 14px;
         border-radius: 8px;
-        color: #61666D;
+        color: #61666d;
         font-size: 14px;
         cursor: pointer;
-        transition: background-color .3s;
+        transition: background-color 0.3s;
 
         &:hover {
-          background-color: #E3E5E7;
+          background-color: #e3e5e7;
         }
 
         .link-title {

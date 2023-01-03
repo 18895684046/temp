@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import emptyImg from '@/assets/empty.png'
-
+import emptyImg from '@/assets/empty.png';
 </script>
 
 <template>

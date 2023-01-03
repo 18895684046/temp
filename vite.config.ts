@@ -1,6 +1,6 @@
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import styleImport, { VantResolve } from "vite-plugin-style-import";
+import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
+import styleImport, { VantResolve } from 'vite-plugin-style-import';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -9,17 +9,19 @@ export default defineConfig({
     vue(),
     styleImport({
       resolves: [VantResolve()],
-      libs: [{
-        libraryName: 'vant',
-        esModule: true,
-        resolveStyle: name => `../es/${name}/style/index`
-      }]
+      libs: [
+        {
+          libraryName: 'vant',
+          esModule: true,
+          resolveStyle: (name) => `../es/${name}/style/index`,
+        },
+      ],
     }),
   ],
   resolve: {
     alias: {
       '@': '/src/',
-    }
+    },
   },
   // 代理
   server: {
@@ -27,13 +29,13 @@ export default defineConfig({
       '/api': {
         target: 'https://qagame-dev.bilibili.co/',
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, '')
+        rewrite: (path) => path.replace(/^\/api/, ''),
       },
       '/static': {
         target: 'https://qaq.com',
         changeOrigin: true,
         // rewrite: (path) => path.replace(/^\/api/, '')
       },
-    }
-  }
-})
+    },
+  },
+});

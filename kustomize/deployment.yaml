@@ -30,6 +30,6 @@ spec:
             - name: template-web-conf
               mountPath: /etc/nginx/conf.d/
       volumes:
-      - name: template-web-conf
-        configMap:
-          name: template-web-conf
+        - name: template-web-conf
+          configMap:
+            name: template-web-conf

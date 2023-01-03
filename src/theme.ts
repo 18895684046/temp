@@ -1,11 +1,11 @@
-import { GlobalThemeOverrides } from 'naive-ui'
+import { GlobalThemeOverrides } from 'naive-ui';
 
-const $qaq_blue = '#0CB6F2'
+const $qaq_blue = '#0CB6F2';
 
 // 自定义naive全局样式
 export const themeOverrides: GlobalThemeOverrides = {
   common: {
-    primaryColor: $qaq_blue
+    primaryColor: $qaq_blue,
   },
   Button: {
     borderHover: `1px solid ${$qaq_blue}`,
@@ -21,5 +21,5 @@ export const themeOverrides: GlobalThemeOverrides = {
     textColorGhostHoverPrimary: $qaq_blue,
     textColorGhostPressedPrimary: $qaq_blue,
     textColorGhostFocusPrimary: $qaq_blue,
-  }
-}
+  },
+};

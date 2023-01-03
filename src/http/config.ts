@@ -11,6 +11,6 @@ export default {
     projects: '/user/:appName/projects',
 
     // 获取应用权限
-    permissions: '/permissions/:appName/:projectId/user/:email'
+    permissions: '/permissions/:appName/:projectId/user/:email',
   },
-}
+};

@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import { useRouter } from 'vue-router'
-import { NButton } from 'naive-ui'
-import notFoundImg from '@/assets/not_found.png'
-import sorry from '@/assets/sorry.png'
+import { useRouter } from 'vue-router';
+import { NButton } from 'naive-ui';
+import notFoundImg from '@/assets/not_found.png';
+import sorry from '@/assets/sorry.png';
 
-const router = useRouter()
+const router = useRouter();
 
-// 返回上一页 
+// 返回上一页
 const handleRollback = () => {
-  router.back()
-}
+  router.back();
+};
 </script>
 
 <template>
@@ -25,6 +25,5 @@ const handleRollback = () => {
 </template>
 
 <style lang="scss" scoped>
-@import "./index.scss";
-
+@import './index.scss';
 </style>

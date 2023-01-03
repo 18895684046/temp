@@ -1,27 +1,27 @@
 <script setup lang="ts">
-import Cookies from 'js-cookie'
-import { NIcon, NSelect } from 'naive-ui'
-import { PoweroffOutlined, RightOutlined, UserOutlined } from '@vicons/antd'
-import { logout } from '@/utils'
-import { Navbar } from '@/hooks/useNavbar'
-import { Project } from '@/stores/modules/projectStore'
+import Cookies from 'js-cookie';
+import { NIcon, NSelect } from 'naive-ui';
+import { PoweroffOutlined, RightOutlined, UserOutlined } from '@vicons/antd';
+import { logout } from '@/utils';
+import { Navbar } from '@/hooks/useNavbar';
+import { Project } from '@/stores/modules/projectStore';
 
 const props = defineProps<{
-  navbar: Navbar,
-  projectId: string,
-  projects: Project[],
-  handleProjectSelected: (value: string) => void
-}>()
+  navbar: Navbar;
+  projectId: string;
+  projects: Project[];
+  handleProjectSelected: (value: string) => void;
+}>();
 
 /**
  * 用户栏逻辑分区
  */
-const avatar = Cookies.get('avatar')
-const nickname = (Cookies.get('fullname') || '').replace(/\+/g, ' ')
+const avatar = Cookies.get('avatar');
+const nickname = (Cookies.get('fullname') || '').replace(/\+/g, ' ');
 
 const linkToAdmin = () => {
-  window.location.href = `/uniauth/project/${props.projectId}`
-}
+  window.location.href = `/uniauth/project/${props.projectId}`;
+};
 </script>
 
 <template>
@@ -38,13 +38,21 @@ const linkToAdmin = () => {
           <span>测试服务</span>
           <div class="hd-subnav-wrp">
             <div class="hd-subnav-content">
-              <div v-for="subnav of navbar?.data?.menu?.find((i: any) => i.name === '测试服务')?.submenu" :key="subnav.name"
-                class="subnav-itm">
+              <div
+                v-for="subnav of navbar?.data?.menu?.find((i: any) => i.name === '测试服务')?.submenu"
+                :key="subnav.name"
+                class="subnav-itm"
+              >
                 <div class="subnav-name">{{ subnav.name }}</div>
                 <div class="subsrv-wrp">
-                  <div v-for="srv of subnav?.subServices" :key="srv?.name"
-                    :class="['subsrv', { 'subsrv-active': srv?.disabled === false }]">
-                    <a class="srv-name" :href="(!srv?.disabled && srv?.url) || '#'">{{ srv.name }}</a>
+                  <div
+                    v-for="srv of subnav?.subServices"
+                    :key="srv?.name"
+                    :class="['subsrv', { 'subsrv-active': srv?.disabled === false }]"
+                  >
+                    <a class="srv-name" :href="(!srv?.disabled && srv?.url) || '#'">{{
+                      srv.name
+                    }}</a>
                   </div>
                 </div>
               </div>
@@ -65,8 +73,12 @@ const linkToAdmin = () => {
 
       <!-- 项目栏 -->
       <div class="hd-prj">
-        <NSelect v-if="projectId" :default-value="projectId" :options="projects"
-          @update:value="handleProjectSelected" />
+        <NSelect
+          v-if="projectId"
+          :default-value="projectId"
+          :options="projects"
+          @update:value="handleProjectSelected"
+        />
       </div>
 
       <!-- 用户栏 -->
@@ -112,6 +124,6 @@ const linkToAdmin = () => {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/constant.scss";
-@import "./index.scss";
+@import '@/styles/constant.scss';
+@import './index.scss';
 </style>
