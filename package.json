@@ -13,7 +13,7 @@
     "fmt:lint-staged": "lint-staged --allow-empty"
   },
   "lint-staged": {
-    "**/*.{js,ts,less,md,json,vue}": [
+    "**/*.{js,ts,less,scss,md,json,vue}": [
       "prettier --write",
       "git add"
     ]
