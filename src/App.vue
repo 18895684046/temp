@@ -7,7 +7,7 @@ import MobileHeader from '@/mobileComponents/mobileHeader/index.vue';
 import { themeOverrides } from '@/theme';
 import LoadingBarApi from '@/components/LoadingBarApi/index.vue';
 import MessageApi from '@/components/MessageApi/index.vue';
-import useNavbar from '@/hooks/useNavbar';
+import useNavbar, { Navbar } from '@/hooks/useNavbar';
 import { useProjectsStore } from '@/stores/modules/projectStore';
 import verifyPermission from '@/utils/verifyPermission';
 
@@ -37,7 +37,7 @@ nextTick(() => {
 
     <div class="hd-mobile">
       <MobileHeader
-        :navbar="navbar"
+        :navbar="navbar as Navbar"
         :projectId="getDefaultProjectId"
         :projects="getProjects"
         :handleProjectSelected="projectStore.updateDefaultProjectId"
@@ -46,7 +46,7 @@ nextTick(() => {
 
     <div class="hd-pc">
       <Header
-        :navbar="navbar"
+        :navbar="navbar as Navbar"
         :projectId="getDefaultProjectId"
         :projects="getProjects"
         :handleProjectSelected="projectStore.updateDefaultProjectId"

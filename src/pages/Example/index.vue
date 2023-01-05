@@ -11,6 +11,8 @@ import {
   NDescriptions,
   NDescriptionsItem,
   NIcon,
+  NTabs,
+  NTabPane,
 } from 'naive-ui';
 import type { DataTableColumns } from 'naive-ui';
 import { useProjectsStore } from '@/stores/modules/projectStore';
@@ -115,6 +117,25 @@ watch(
         />
       </NCarousel>
     </div>
+
+    <!-- <div>
+      <n-tabs default-value="oasis">
+        <n-tab-pane name="oasis" tab="Oasis">
+          <template #default>
+            Prefix
+          </template>
+        </n-tab-pane>
+        <n-tab-pane name="the beatles" tab="📅 the Beatles">
+          Hey Jude
+        </n-tab-pane>
+        <n-tab-pane name="jay chou" tab="周杰伦">
+          七里香
+        </n-tab-pane>
+        <template #suffix>
+          Suffix
+        </template>
+      </n-tabs>
+    </div> -->
 
     <NCard>
       <template #header>
