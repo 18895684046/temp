@@ -11,6 +11,10 @@ const Example1 = () => import('@/pages/Example1/index.vue');
 // 404
 const NotFound = () => import('@/pages/NotFound/index.vue');
 
+// 帮助中心
+
+const Help = () => import('@/pages/Help/index.vue');
+
 const routes: RouteRecordRaw[] = [
   {
     path: '/example',
@@ -30,7 +34,7 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/example3',
     name: 'example3',
-    component: Example,
+    component: Help,
   },
   {
     path: '/:pathMatch(.*)*',

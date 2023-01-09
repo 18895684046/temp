@@ -159,6 +159,11 @@
   "resolved" "https://registry.npmjs.org/@types/semver/-/semver-7.3.13.tgz"
   "version" "7.3.13"
 
+"@types/web-bluetooth@^0.0.16":
+  "integrity" "sha512-oh8q2Zc32S6gd/j50GowEjKLoOVOwHP/bWVjKJInBwQqdOYMdPrf1oVlelTlyfFK3CKxL1uahMDAr+vy8T7yMQ=="
+  "resolved" "https://registry.npmjs.org/@types/web-bluetooth/-/web-bluetooth-0.0.16.tgz"
+  "version" "0.0.16"
+
 "@typescript-eslint/eslint-plugin@^5.47.0":
   "integrity" "sha512-AHZtlXAMGkDmyLuLZsRpH3p4G/1iARIwc/T0vIem2YB+xW6pZaXYXzCBnZSF/5fdM97R9QqZWZ+h3iW10XgevQ=="
   "resolved" "https://registry.npmjs.org/@typescript-eslint/eslint-plugin/-/eslint-plugin-5.47.0.tgz"
@@ -422,6 +427,28 @@
   "integrity" "sha512-rpAn9k6O08Lvo7ekBIAnkOukX/4EsEQLPrRJBKhIEasMsOI5eX0f6mq1sDUSY7cgAqWw2d7QtP74CWxdXoyKxA=="
   "resolved" "https://registry.npmmirror.com/@vue/shared/download/@vue/shared-3.2.27.tgz"
   "version" "3.2.27"
+
+"@vueuse/core@^9.10.0":
+  "integrity" "sha512-CxMewME07qeuzuT/AOIQGv0EhhDoojniqU6pC3F8m5VC76L47UT18DcX88kWlP3I7d3qMJ4u/PD8iSRsy3bmNA=="
+  "resolved" "https://registry.npmjs.org/@vueuse/core/-/core-9.10.0.tgz"
+  "version" "9.10.0"
+  dependencies:
+    "@types/web-bluetooth" "^0.0.16"
+    "@vueuse/metadata" "9.10.0"
+    "@vueuse/shared" "9.10.0"
+    "vue-demi" "*"
+
+"@vueuse/metadata@9.10.0":
+  "integrity" "sha512-G5VZhgTCapzU9rv0Iq2HBrVOSGzOKb+OE668NxhXNcTjUjwYxULkEhAw70FtRLMZc+hxcFAzDZlKYA0xcwNMuw=="
+  "resolved" "https://registry.npmjs.org/@vueuse/metadata/-/metadata-9.10.0.tgz"
+  "version" "9.10.0"
+
+"@vueuse/shared@9.10.0":
+  "integrity" "sha512-vakHJ2ZRklAzqmcVBL38RS7BxdBA4+5poG9NsSyqJxrt9kz0zX3P5CXMy0Hm6LFbZXUgvKdqAS3pUH1zX/5qTQ=="
+  "resolved" "https://registry.npmjs.org/@vueuse/shared/-/shared-9.10.0.tgz"
+  "version" "9.10.0"
+  dependencies:
+    "vue-demi" "*"
 
 "@xicons/utils@^0.1.4":
   "integrity" "sha1-zs5QYTs01LTHHnO7C+kpgQZ+EeE="

@@ -7,9 +7,13 @@ import MobileHeader from '@/mobileComponents/mobileHeader/index.vue';
 import { themeOverrides } from '@/theme';
 import LoadingBarApi from '@/components/LoadingBarApi/index.vue';
 import MessageApi from '@/components/MessageApi/index.vue';
-import useNavbar, { Navbar } from '@/hooks/useNavbar';
+import useNavbar from '@/hooks/useNavbar';
 import { useProjectsStore } from '@/stores/modules/projectStore';
 import verifyPermission from '@/utils/verifyPermission';
+
+interface Navbar {
+  data: any;
+}
 
 const projectStore = useProjectsStore();
 const { getDefaultProjectId, getProjects } = storeToRefs(projectStore);
@@ -90,5 +94,24 @@ nextTick(() => {
   .hd-pc {
     display: none;
   }
+}
+
+.transition-default {
+  &-enter-active,
+  &-leave-active {
+    transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1) !important;
+  }
+
+  &-move {
+    transition: transform 0.4s;
+  }
+}
+
+.expand-transition {
+  @extend .transition-default;
+}
+
+.expand-x-transition {
+  @extend .transition-default;
 }
 </style>
